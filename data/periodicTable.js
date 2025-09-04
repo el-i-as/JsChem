@@ -1,19 +1,13 @@
 class PeriodicTable {
-    
-    static HYDROGEN = registerElem("hydrogen", "H", 1.01, );
-    static HELIUM = registerElem("helium", "He", 4.00);
-    static LITHIUM = registerElem("lithium", "Li", 6.968);
+	static abbrMap = new Map();
+	static initElements () {
+		this.HYDROGEN = registerElem("hydrogen", "H", 1.01, );
+		this.HELIUM = registerElem("helium", "He", 4.00);
+		this.LITHIUM = registerElem("lithium", "Li", 6.97);
+	}
 }
 function registerElem (name, abbr, molarMass) {
-    return new Element(name, abbr, molarMass);
-}
-class Element {
-    name = "unnamed";
-    abbr = "Un";
-    molarMass = 1.00;
-    constructor (name, abbr, molarMass) {
-        this.name = name;
-        this.abbr = abbr;
-        this.molarMass = molarMass;
-    }
+	let elem = new Element(name, abbr, molarMass);
+	PeriodicTable.abbrMap.set(abbr, elem);
+	return elem;
 }

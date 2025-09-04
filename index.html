@@ -1,12 +1,23 @@
 <head>
     <link rel="stylesheet" href="style.css">
+    <script src="data/element.js"></script>
     <script src="data/periodicTable.js"></script>
     <script src="scripts/equationBalancer.js"></script>
     <script src="data/compound.js"></script>
     <script src="data/number.js"></script>
+    <script>
+        window.onload = function () {
+            PeriodicTable.initElements();
+        }
+        function submitText (text) {
+            console.log(text);
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <button class="button">Add Element</button>
+        <input type="text" name="mainInput" id="mainTextInput" onkeydown="event.key === 'Enter' && submitText(this.value)">
+        <label for="mainInput">Type stuff here</label>
     </div>
 </body>
